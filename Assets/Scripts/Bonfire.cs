@@ -10,7 +10,7 @@ public class Bonfire : MonoBehaviour
 {
     [SerializeField] private List<BonfireLog> _colection;
     [SerializeField] private ParticleSystem _psFire;
-    [SerializeField, NotNull] private Transform _entryPosition;
+    [SerializeField] private Transform _entryPosition;
     [SerializeField] private int _maximumLogs;
     
     private SpawnEnemy _spawnEnemy;
@@ -20,6 +20,9 @@ public class Bonfire : MonoBehaviour
     public int ActiveCount => _activeCount;
     public int MaximumLogs => _maximumLogs;
     public int MaxActiveElemnt => _colection.Count;
+    public Transform EntryPosition => _entryPosition;
+
+    public Transform SpawnPoint => _spawnEnemy.transform;
 
     public event Action LogInside;
     

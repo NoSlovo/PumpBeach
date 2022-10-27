@@ -11,6 +11,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] private NavMeshAgent _agent;
 
     private Transform _endPoint;
+    private bool _activeReactionTriger;
+
+    public bool ActiveReactionTriger => _activeReactionTriger;
+    
     
 
     private void Awake()
@@ -21,14 +25,15 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if (Vector3.Distance(transform.position,_endPoint.position) < 0.3f)
+        if (Vector3.Distance(transform.position,_endPoint.position) < 2.5f && _endPoint != null)
         {
-            StopMove();
+            _activeReactionTriger = true;
         }
     }
 
-    public void MoveToPoint(Transform point,SleepWolk sleepWolk = null)
+    public void MoveToPoint(Transform point)
     {
+        _activeReactionTriger = false;
         _endPoint = point;
         _animator.Play(BaseAnimation.Run);
         _agent.SetDestination(point.position);
@@ -38,17 +43,20 @@ public class Enemy : MonoBehaviour
     public void Crawling(Transform point)
     {
         _animator.Play(BaseAnimation.EnemyCrowling);
-        transform.DOMove(point.position, 1f);
+        transform.DOMove(point.position, 5f).OnComplete(() =>
+        {
+            
+        });
     }
     
     public void StopMove()
     {
-        _agent.enabled = false;
-        _animator.Play(BaseAnimation.Idle);
+        _agent.isStopped = true;
     }
 
     public void Sit()
     {
+        _agent.enabled = false;
         _animator.Play(BaseAnimation.EnemySit);
     }
     

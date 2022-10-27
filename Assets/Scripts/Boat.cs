@@ -4,6 +4,9 @@ using UnityEngine;
 public class Boat : MonoBehaviour
 {
  [SerializeField] private Animator _animator;
+ [SerializeField] private Transform _instanceEnemy;
+
+ public Transform InstanceEnemy => _instanceEnemy;
  
  
  private void Awake()

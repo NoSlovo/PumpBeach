@@ -23,7 +23,7 @@ public class PlayeMove : MonoBehaviour
         {
             if (_towerRoot.CurrenCount > 0)
             {
-                _animator.Play(BaseAnimation.Carrying);
+                _animator.Play(BaseAnimation.Crewling);
                 _animator.Play(BaseAnimation.Run);
                 transform.rotation = Quaternion.LookRotation( _rb.velocity);
             }

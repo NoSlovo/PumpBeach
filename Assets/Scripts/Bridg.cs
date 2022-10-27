@@ -1,4 +1,5 @@
 using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 
 public class Bridg : MonoBehaviour
@@ -39,13 +40,13 @@ public class Bridg : MonoBehaviour
       if (_boatSpawn.GetCreatedItem(out Boat boat))
       {
          var instantiateEnemy = Instantiate(enemy);
-         Destroy(enemy.gameObject);
-         instantiateEnemy.transform.SetParent(boat.transform);
          instantiateEnemy.transform.position = boat.transform.position;
+         instantiateEnemy.transform.rotation = boat.transform.rotation;
          _particleSystem.Play();
          instantiateEnemy.Sit();
-         instantiateEnemy.transform.rotation = boat.transform.rotation;
+         instantiateEnemy.transform.SetParent(boat.transform);
          boat.Move();
+         Destroy(enemy.gameObject);
          StartCoroutine(RunRefreshBoatsPosition());
       }
    }
