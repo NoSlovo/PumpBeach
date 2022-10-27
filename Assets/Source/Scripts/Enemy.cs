@@ -18,17 +18,23 @@ public class Enemy : MonoBehaviour
         _agent = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();
     }
-    
-    public void MoveToPoint(Transform point)
+
+    private void Update()
+    {
+        if (Vector3.Distance(transform.position,_endPoint.position) < 0.3f)
+        {
+            StopMove();
+        }
+    }
+
+    public void MoveToPoint(Transform point,SleepWolk sleepWolk = null)
     {
         _endPoint = point;
         _animator.Play(BaseAnimation.Run);
         _agent.SetDestination(point.position);
     }
     
-
     
-
     public void Crawling(Transform point)
     {
         _animator.Play(BaseAnimation.EnemyCrowling);
@@ -38,6 +44,7 @@ public class Enemy : MonoBehaviour
     public void StopMove()
     {
         _agent.enabled = false;
+        _animator.Play(BaseAnimation.Idle);
     }
 
     public void Sit()
