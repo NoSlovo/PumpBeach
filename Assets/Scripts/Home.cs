@@ -2,14 +2,10 @@ using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 
-public class Home : MonoBehaviour
-{ [SerializeField] private Bonfire _bonfire;
-     [SerializeField] private Transform _endPoint;
-     [SerializeField] private DeleteTriger _deleteEnemyPoint;
- 
-     private bool _enemyMove = false;
- 
-     private void OnTriggerEnter(Collider other)
+public class Home : SleepingBag
+{
+
+    private void OnTriggerEnter(Collider other)
      {
          if (other.TryGetComponent(out Enemy enemy))
          {
@@ -29,22 +25,15 @@ public class Home : MonoBehaviour
              
          }
      }
- 
- 
+    
      private void MoveEnemy(Enemy enemy)
      {
-         if (_enemyMove)
-             return;
-         else
-         {
-             enemy.Crawling(_endPoint);
-             enemy.transform.LookAt(_endPoint);
-             _enemyMove = true;
-             StartCoroutine(MoveBack(enemy));
-         }
+         enemy.Crawling(_endPoint);
+         enemy.transform.LookAt(_endPoint);
+         StartCoroutine(MoveBack(enemy));
      }
- 
- 
+     
+     
      private IEnumerator MoveBack(Enemy enemy)
      {
          var waitForSecondsRealtime = new WaitForSecondsRealtime(5f);
@@ -56,3 +45,4 @@ public class Home : MonoBehaviour
          enemy.transform.LookAt(_bonfire.EntryPosition.position);
      }
 }
+

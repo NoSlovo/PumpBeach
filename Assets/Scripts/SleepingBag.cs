@@ -1,10 +1,8 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class SleepingBag : MonoBehaviour
+public class SleepingBag : SleepingPlace
 {
-    [SerializeField] private Bonfire _bonfire;
-    [SerializeField] private Transform _endPoint;
 
     private void OnTriggerStay(Collider other)
     {
@@ -12,6 +10,7 @@ public class SleepingBag : MonoBehaviour
         {
             if (enemy.ActiveReactionTriger)
             {
+                MoneySpawn();
                 enemy.StopMove();
                 MoveEnemy(enemy);
             }
