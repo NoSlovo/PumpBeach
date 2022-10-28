@@ -37,11 +37,11 @@ public class Enemy : MonoBehaviour
 
     public void MoveToPoint(Transform point)
     {
+        _agent.enabled = true;
         _activeReactionTriger = false;
         _endPoint = point;
         _animator.Play(BaseAnimation.Run);
         _agent.SetDestination(point.position);
-        Debug.Log(point.position);
     }
     
     
@@ -56,7 +56,7 @@ public class Enemy : MonoBehaviour
     
     public void StopMove()
     {
-        _agent.isStopped = true;
+        _agent.enabled = false;
     }
 
     public void Sit()

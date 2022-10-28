@@ -36,7 +36,7 @@ public class Tent : MonoBehaviour
     private void MoveEnemy(Enemy enemy)
     {
         enemy.Crawling(_endPoint);
-        // enemy.transform.LookAt(_endPoint);
+        enemy.transform.LookAt(_endPoint);
         StartCoroutine(MoveBack(enemy));
     }
 
@@ -49,6 +49,6 @@ public class Tent : MonoBehaviour
         {
             enemy.MoveToPoint(_deleteEnemyPoint.transform);
         });
-        // enemy.transform.LookAt(_bonfire.EntryPosition.position);
+        enemy.transform.LookAt(_bonfire.EntryPosition.position);
     }
 }
