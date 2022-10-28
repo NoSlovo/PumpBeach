@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.AI;
@@ -40,6 +41,7 @@ public class Enemy : MonoBehaviour
         _endPoint = point;
         _animator.Play(BaseAnimation.Run);
         _agent.SetDestination(point.position);
+        Debug.Log(point.position);
     }
     
     
