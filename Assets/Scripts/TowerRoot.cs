@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using Lib;
+using Unity.Burst;
 using UnityEngine;
 
+[BurstCompile]
 public class TowerRoot : MonoBehaviour
 {
     private float _itemHeight = 0.20f;

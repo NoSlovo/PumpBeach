@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using DG.Tweening;
+using Unity.Burst;
 using UnityEngine;
 
+[BurstCompile]
 public class LogSpawner : MonoBehaviour
 {
     [SerializeField] private Log _logObject;

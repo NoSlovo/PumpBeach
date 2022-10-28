@@ -1,32 +1,58 @@
+using System.Collections;
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class Home : MonoBehaviour
-{
-   [SerializeField] private Bonfire _bonfire;
-   [SerializeField] private Transform _endPoint;
-
-   private void OnTriggerStay(Collider other)
-   {
-      if (other.TryGetComponent(out Enemy enemy))
-      {
-         if (enemy.ActiveReactionTriger)
+{ [SerializeField] private Bonfire _bonfire;
+     [SerializeField] private Transform _endPoint;
+     [SerializeField] private DeleteTriger _deleteEnemyPoint;
+ 
+     private bool _enemyMove = false;
+ 
+     private void OnTriggerEnter(Collider other)
+     {
+         if (other.TryGetComponent(out Enemy enemy))
          {
-            enemy.StopMove();
-            MoveEnemy(enemy);
+             if (enemy.ActiveReactionTriger)
+             {
+                 _bonfire.EnableElemenst();
+                 enemy.StopMove();
+                 MoveEnemy(enemy);
+             }
          }
-      }
-   }
-
-   private void OnTriggerExit(Collider other)
-   {
-        
-   }
-
-
-   private void MoveEnemy(Enemy enemy)
-   {
-      enemy.transform.DOMove(_endPoint.position, 1f);
-   }
+     }
+ 
+     private void OnTriggerExit(Collider other)
+     {
+         if (other.TryGetComponent(out Enemy enemy))
+         {
+             
+         }
+     }
+ 
+ 
+     private void MoveEnemy(Enemy enemy)
+     {
+         if (_enemyMove)
+             return;
+         else
+         {
+             enemy.Crawling(_endPoint);
+             enemy.transform.LookAt(_endPoint);
+             _enemyMove = true;
+             StartCoroutine(MoveBack(enemy));
+         }
+     }
+ 
+ 
+     private IEnumerator MoveBack(Enemy enemy)
+     {
+         var waitForSecondsRealtime = new WaitForSecondsRealtime(5f);
+         yield return waitForSecondsRealtime;
+         enemy.transform.DOMove(_bonfire.EntryPosition.position, 5f).OnComplete(() =>
+         {
+             enemy.MoveToPoint(_deleteEnemyPoint.transform);
+         });
+         enemy.transform.LookAt(_bonfire.EntryPosition.position);
+     }
 }

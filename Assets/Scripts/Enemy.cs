@@ -25,9 +25,12 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if (Vector3.Distance(transform.position,_endPoint.position) < 2.5f && _endPoint != null)
+        if (_endPoint != null)
         {
-            _activeReactionTriger = true;
+            if (Vector3.Distance(transform.position,_endPoint.position) < 0.5f)
+            {
+                _activeReactionTriger = true;
+            }   
         }
     }
 

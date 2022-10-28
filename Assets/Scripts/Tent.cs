@@ -18,6 +18,7 @@ public class Tent : MonoBehaviour
         {
             if (enemy.ActiveReactionTriger)
             {
+                _bonfire.EnableElemenst();
                 enemy.StopMove();
                 MoveEnemy(enemy);
             }
@@ -35,15 +36,9 @@ public class Tent : MonoBehaviour
 
     private void MoveEnemy(Enemy enemy)
     {
-        if (_enemyMove)
-            return;
-        else
-        {
-            enemy.Crawling(_endPoint);
-            enemy.transform.LookAt(_endPoint);
-            _enemyMove = true;
-            StartCoroutine(MoveBack(enemy));
-        }
+        enemy.Crawling(_endPoint);
+        enemy.transform.LookAt(_endPoint);
+        StartCoroutine(MoveBack(enemy));
     }
 
 

@@ -84,7 +84,7 @@ public class Bonfire : MonoBehaviour
         }
     }
 
-    private void EnableElemenst()
+    public void EnableElemenst()
     {
         for (int i = 0; i < _colection.Count; i++)
         {
