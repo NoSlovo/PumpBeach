@@ -4,9 +4,12 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
-public class Tent : SleepingPlace
+public class Tent : MonoBehaviour
 {
-   
+    [SerializeField] protected Bonfire _bonfire;
+    [SerializeField] protected Transform _endPoint;
+    [SerializeField] protected DeleteTriger _deleteEnemyPoint;
+    public event Action EnemyInside;
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out Enemy enemy))

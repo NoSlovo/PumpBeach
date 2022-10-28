@@ -1,8 +1,13 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 
-public class SleepingBag : SleepingPlace
+public class SleepingBag : MonoBehaviour
 {
+    [SerializeField] protected Bonfire _bonfire;
+    [SerializeField] protected Transform _endPoint;
+    [SerializeField] protected DeleteTriger _deleteEnemyPoint;
+    public event Action EnemyInside;
 
     private void OnTriggerStay(Collider other)
     {
@@ -10,7 +15,7 @@ public class SleepingBag : SleepingPlace
         {
             if (enemy.ActiveReactionTriger)
             {
-                MoneySpawn();
+                EnemyInside.Invoke();
                 enemy.StopMove();
                 MoveEnemy(enemy);
             }
