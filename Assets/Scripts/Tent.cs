@@ -16,6 +16,7 @@ public class Tent : MonoBehaviour
         {
             if (enemy.ActiveReactionTriger)
             {
+                EnemyInside?.Invoke();
                 _bonfire.EnableElemenst();
                 enemy.StopMove();
                 MoveEnemy(enemy);

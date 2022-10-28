@@ -13,16 +13,10 @@ public class MoneySpawn : MonoBehaviour
     {
         _tent.EnemyInside += InstanceMoney;
     }
-
-    private void Start()
-    {
-        InstanceMoney();
-    }
-
+    
     private void InstanceMoney()
     {
       var money = Instantiate(_money);
-      money.transform.position = _spawnPoint.position + new Vector3(0f,0f,0f);
     }
 
     private void Position()

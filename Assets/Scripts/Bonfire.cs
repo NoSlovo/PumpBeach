@@ -59,7 +59,6 @@ public class Bonfire : MonoBehaviour
                 {
                     if (maxCount == 1)
                         ActiveFullColection();
-                    
                     _colection[_activeCount].MeshOn();
                     _activeCount++;
                     LogInside?.Invoke();
@@ -86,9 +85,12 @@ public class Bonfire : MonoBehaviour
 
     public void EnableElemenst()
     {
+        _psFire.Stop();
+        _activeCount = 0;
         for (int i = 0; i < _colection.Count; i++)
         {
             _colection[i].MeshOff();
         }
+        LogInside?.Invoke();
     }
 }
