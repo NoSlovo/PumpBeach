@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TrigerSpawner : MonoBehaviour
+public class TrigerLogSpawner : MonoBehaviour
 {
   [SerializeField] private LogSpawner _logSpawner;
   

@@ -18,7 +18,7 @@ public abstract class SleepingPlace : MonoBehaviour
             if (enemy.ActiveReactionTriger)
             {
                 enemy.StopMove();
-                MoveAnemyPoint(enemy);
+                MoveEnemyPoint(enemy);
             }
         }
     }
@@ -31,7 +31,7 @@ public abstract class SleepingPlace : MonoBehaviour
         }
     }
 
-    public abstract void MoveAnemyPoint(Enemy enemy);
+    public abstract void MoveEnemyPoint(Enemy enemy);
 
     protected IEnumerator MoveBack(Enemy enemy)
     {

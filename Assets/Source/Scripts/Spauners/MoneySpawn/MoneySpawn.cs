@@ -4,7 +4,6 @@ public class MoneySpawn : MonoBehaviour
 {
     [SerializeField] private SleepingPlace _sleepingPlace;
     [SerializeField] private MonyePack _money;
-    [SerializeField] private Transform _spawnPoint;
 
     private void OnEnable()
     {
@@ -14,6 +13,7 @@ public class MoneySpawn : MonoBehaviour
     private void InstanceMoney()
     {
       var money = Instantiate(_money);
+      money.transform.position = transform.position;
     }
 
     private void OnDisable()
