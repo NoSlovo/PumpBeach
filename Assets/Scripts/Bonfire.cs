@@ -12,6 +12,7 @@ public class Bonfire : MonoBehaviour
     [SerializeField] private ParticleSystem _psFire;
     [SerializeField] private Transform _entryPosition;
     [SerializeField] private int _maximumLogs;
+    [SerializeField] private SleepingPlace _sleepingPlace;
     
     private SpawnEnemy _spawnEnemy;
     private int _activeCount;
@@ -21,7 +22,6 @@ public class Bonfire : MonoBehaviour
     public int MaximumLogs => _maximumLogs;
     public int MaxActiveElemnt => _colection.Count;
     public Transform EntryPosition => _entryPosition;
-
     public Transform SpawnPoint => _spawnEnemy.transform;
 
     public event Action LogInside;
@@ -31,7 +31,12 @@ public class Bonfire : MonoBehaviour
     {
         _spawnEnemy = container.Resolve<SpawnEnemy>();
     }
-    
+
+    private void OnEnable()
+    {
+        _sleepingPlace.EnemyExit += EnableElemenst;
+    }
+
     private void Start()
     {
         EnableElemenst();
@@ -55,16 +60,14 @@ public class Bonfire : MonoBehaviour
             {
                 _logMove = true;
 
-                log.transform.DOJump(transform.position, 1f, 1, 0.25f).OnComplete(() =>
+                log.transform.DOJump(transform.position, 1f, 1, 0.25f)
+                    .OnComplete(() =>
                 {
                     if (maxCount == 1)
                         ActiveFullColection();
-                    _colection[_activeCount].MeshOn();
-                    _activeCount++;
-                    LogInside?.Invoke();
-                    _logMove = false;
-                    Destroy(log.gameObject);
-
+                    
+                    AddLog(log);
+                    
                     if (_activeCount == maxCount)
                     {
                         _spawnEnemy.CreateAndMove(_entryPosition);
@@ -82,8 +85,17 @@ public class Bonfire : MonoBehaviour
             _colection[i].MeshOn();
         }
     }
+    
+    private void AddLog(Log log)
+    {
+        _colection[_activeCount].MeshOn();
+        _activeCount++;
+        LogInside?.Invoke();
+        _logMove = false;
+        Destroy(log.gameObject);
+    }
 
-    public void EnableElemenst()
+    private void EnableElemenst()
     {
         _psFire.Stop();
         _activeCount = 0;
@@ -92,5 +104,11 @@ public class Bonfire : MonoBehaviour
             _colection[i].MeshOff();
         }
         LogInside?.Invoke();
+    }
+
+
+    private void OnDisable()
+    {
+        _sleepingPlace.EnemyExit -= EnableElemenst;
     }
 }

@@ -1,17 +1,14 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MoneySpawn : MonoBehaviour
 {
-    [SerializeField] private Tent _tent;
+    [SerializeField] private SleepingPlace _sleepingPlace;
     [SerializeField] private MonyePack _money;
     [SerializeField] private Transform _spawnPoint;
 
     private void OnEnable()
     {
-        _tent.EnemyInside += InstanceMoney;
+        _sleepingPlace.EnemyExit += InstanceMoney;
     }
     
     private void InstanceMoney()
@@ -19,13 +16,8 @@ public class MoneySpawn : MonoBehaviour
       var money = Instantiate(_money);
     }
 
-    private void Position()
-    {
-        
-    }
-
     private void OnDisable()
     {
-        _tent.EnemyInside -= InstanceMoney;
+        _sleepingPlace.EnemyExit -= InstanceMoney;
     }
 }
