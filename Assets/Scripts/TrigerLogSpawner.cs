@@ -10,7 +10,7 @@ public class TrigerSpawner : MonoBehaviour
     {
       if (_tower.TowerFull != true)
       {
-        if (_logSpawner.TryColectionLog(out var log))
+        if (_logSpawner.TryColectionLog(out Log log))
         {
           _tower.PutElement(log);
         } 
