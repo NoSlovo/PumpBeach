@@ -1,13 +1,14 @@
+using System.Collections.Generic;
 using Reflex;
 using Reflex.Scripts;
 using UnityEngine;
 
 public class ScenInstailer : Installer
 {
-    [SerializeField] private SpawnEnemy _spawnEnemy;
+    [SerializeField] private List<Bonfire> _bonfires;
 
     public override void InstallBindings(Container container)
     {
-        container.BindInstanceAs(_spawnEnemy);
+        container.BindInstanceAs(_bonfires);
     }
 }

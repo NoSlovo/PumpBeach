@@ -10,4 +10,5 @@ public class BaseAnimation
    public const string Crewling = "Carrying";
    public const string EnemySit = "Sit";
    public const string BoatSwim = "Swim";
+   public const string Sleep = "Sleep";
 }

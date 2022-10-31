@@ -10,10 +10,10 @@ Material:
   m_Name: Car-Set3-CarChrome1
   m_Shader: {fileID: 4800000, guid: 0daa94f23f43f498b822cfbfc22c6689, type: 3}
   m_ValidKeywords:
-  - _CELPRIMARYMODE_SINGLE
   - _UNITYSHADOWMODE_COLOR
   m_InvalidKeywords:
   - DR_CEL_PRIMARY_ON
+  - _CELPRIMARYMODE_NONE
   - _FLAT_SHADOWS_ENABLED
   - _FLAT_SPECULAR_ENABLED
   m_LightmapFlags: 4
@@ -77,7 +77,7 @@ Material:
     - _CelExtraEnabled: 0
     - _CelNumSteps: 3
     - _CelPrimaryEnabled: 1
-    - _CelPrimaryMode: 1
+    - _CelPrimaryMode: 0
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1

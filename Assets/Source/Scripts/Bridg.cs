@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
@@ -7,9 +8,9 @@ public class Bridg : MonoBehaviour
    [SerializeField] private Transform _targetPosition;
    [SerializeField] private ParticleSystem _particleSystem;
    [SerializeField] private BoatSpawn _boatSpawn;
-   [SerializeField]private SpawnEnemy _spawnEnemy;
-      
 
+   public event Action<Transform> BoatCreate;
+   
    private void Awake()
    {
       _particleSystem.Stop();
@@ -32,7 +33,7 @@ public class Bridg : MonoBehaviour
 
    private void ComeHere()
    {
-      _spawnEnemy.CreateAndMove(_targetPosition);
+      BoatCreate.Invoke(_targetPosition);
    }
 
    private void PlaceInBoat(Enemy enemy)

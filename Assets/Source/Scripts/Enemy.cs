@@ -64,5 +64,10 @@ public class Enemy : MonoBehaviour
         _agent.enabled = false;
         _animator.Play(BaseAnimation.EnemySit);
     }
+
+    public void Sleep()
+    {
+        _animator.Play(BaseAnimation.Sleep);
+    }
     
 }

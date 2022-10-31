@@ -6,7 +6,7 @@ public class DeleteTriger : MonoBehaviour
    {
       if (other.TryGetComponent(out Enemy enemy))
       {
-         Destroy(enemy);
+         Destroy(enemy.gameObject);
       }
    }
 }

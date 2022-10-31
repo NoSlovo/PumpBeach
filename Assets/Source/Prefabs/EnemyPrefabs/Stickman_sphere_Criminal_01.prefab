@@ -603,9 +603,9 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 4d40b52ba1511b84b956295bb642a479, type: 3}
   m_Controller: {fileID: 9100000, guid: 96a042afb4aaa8042aacf02dc4dd8cb5, type: 2}
-  m_CullingMode: 1
+  m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 

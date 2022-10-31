@@ -1,9 +1,6 @@
 using System;
 using System.Collections.Generic;
 using DG.Tweening;
-using JetBrains.Annotations;
-using Reflex;
-using Reflex.Scripts.Attributes;
 using UnityEngine;
 
 public class Bonfire : MonoBehaviour
@@ -22,15 +19,10 @@ public class Bonfire : MonoBehaviour
     public int MaximumLogs => _maximumLogs;
     public int MaxActiveElemnt => _colection.Count;
     public Transform EntryPosition => _entryPosition;
-    public Transform SpawnPoint => _spawnEnemy.transform;
 
     public event Action LogInside;
+    public event Action<Transform> BonfireActive;
     
-    [Inject]
-    private void Construct(Container container)
-    {
-        _spawnEnemy = container.Resolve<SpawnEnemy>();
-    }
 
     private void OnEnable()
     {
@@ -62,18 +54,18 @@ public class Bonfire : MonoBehaviour
 
                 log.transform.DOJump(transform.position, 1f, 1, 0.25f)
                     .OnComplete(() =>
-                {
-                    if (maxCount == 1)
-                        ActiveFullColection();
-                    
-                    AddLog(log);
-                    
-                    if (_activeCount == maxCount)
                     {
-                        _spawnEnemy.CreateAndMove(_entryPosition);
-                        _psFire.Play();
-                    }
-                });
+                        if (maxCount == 1)
+                            ActiveFullColection();
+
+                        AddLog(log);
+
+                        if (_activeCount == maxCount)
+                        {
+                            BonfireActive?.Invoke(_entryPosition);
+                            _psFire.Play();
+                        }
+                    });
             }
         }
     }
