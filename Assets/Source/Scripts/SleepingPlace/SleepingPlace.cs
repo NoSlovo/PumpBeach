@@ -22,14 +22,7 @@ public abstract class SleepingPlace : MonoBehaviour
             }
         }
     }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.TryGetComponent(out Enemy enemy))
-        {
-            EnemyExit.Invoke();
-        }
-    }
+    
 
     public abstract void MoveEnemyPoint(Enemy enemy);
 
@@ -40,6 +33,7 @@ public abstract class SleepingPlace : MonoBehaviour
         enemy.transform.DOMove(_bonfire.EntryPosition.position, 5f).OnComplete(() =>
         {
             enemy.MoveToPoint(_deleteEnemyPoint.transform);
+            EnemyExit.Invoke();
         });
         enemy.transform.LookAt(_bonfire.EntryPosition.position);
     }

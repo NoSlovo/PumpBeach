@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using DG.Tweening;
+using Unity.Burst;
 using UnityEngine;
 
+[BurstCompile]
 public class Bonfire : MonoBehaviour
 {
     [SerializeField] private List<BonfireLog> _colection;
@@ -10,7 +12,7 @@ public class Bonfire : MonoBehaviour
     [SerializeField] private Transform _entryPosition;
     [SerializeField] private int _maximumLogs;
     [SerializeField] private SleepingPlace _sleepingPlace;
-    
+
     private SpawnEnemy _spawnEnemy;
     private int _activeCount;
     private bool _logMove;

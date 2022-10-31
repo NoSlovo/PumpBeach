@@ -1,9 +1,18 @@
+using System;
+using System.Collections.Generic;
+using DG.Tweening;
+using Lib;
 using UnityEngine;
 
+[ExecuteAlways]
 public class MoneySpawn : MonoBehaviour
 {
     [SerializeField] private SleepingPlace _sleepingPlace;
-    [SerializeField] private MonyePack _money;
+    [SerializeField] private Money _money;
+    [SerializeField] private Transform _startPosition;
+    [SerializeField] private int _MaxSpawn;
+
+    private List<Money> _moneyColection = new ();
 
     private void OnEnable()
     {
@@ -12,9 +21,24 @@ public class MoneySpawn : MonoBehaviour
     
     private void InstanceMoney()
     {
-      var money = Instantiate(_money);
-      money.transform.position = transform.position;
+        for (int i = 0; i < _MaxSpawn; i++)
+        {
+            var money = Instantiate(_money,_startPosition);
+            _moneyColection.Add(money);
+            MoveMoney();   
+        }
     }
+
+
+    private void MoveMoney()
+    {
+        _moneyColection.ForEachIndexed((i, Index) =>
+        {
+            var targetPosition = _startPosition.position + new Vector3(0, Index * 0.1f, 0);
+            i.transform.DOMove(targetPosition, 1f);
+        });
+    }
+    
 
     private void OnDisable()
     {
