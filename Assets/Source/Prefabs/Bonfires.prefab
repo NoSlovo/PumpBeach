@@ -109,7 +109,6 @@ GameObject:
   - component: {fileID: 1931268599235423963}
   - component: {fileID: 1931268599235423962}
   - component: {fileID: 1931268599235423961}
-  - component: {fileID: 3798568706148988917}
   m_Layer: 3
   m_Name: BonfireTriger
   m_TagString: Untagged
@@ -216,23 +215,6 @@ MonoBehaviour:
   _entryPosition: {fileID: 0}
   _maximumLogs: 0
   _sleepingPlace: {fileID: 0}
-  _moneySpawn: {fileID: 3798568706148988917}
---- !u!114 &3798568706148988917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1931268599235423972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40eab59a617c5ab488f1a5d229819f7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sleepingPlace: {fileID: 0}
-  _money: {fileID: 4557083926995972756, guid: 40b613df59d354241babe050fc9cc9f7, type: 3}
-  _startPosition: {fileID: 0}
-  _MaxSpawn: 0
 --- !u!1 &1931268599286739824
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,7 +446,6 @@ GameObject:
   - component: {fileID: 1931268599401524943}
   - component: {fileID: 1931268599401524942}
   - component: {fileID: 1931268599401524941}
-  - component: {fileID: 3268407188136479918}
   m_Layer: 3
   m_Name: BonfireTriger
   m_TagString: Untagged
@@ -571,23 +552,6 @@ MonoBehaviour:
   _entryPosition: {fileID: 0}
   _maximumLogs: 0
   _sleepingPlace: {fileID: 0}
-  _moneySpawn: {fileID: 3268407188136479918}
---- !u!114 &3268407188136479918
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1931268599401524939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40eab59a617c5ab488f1a5d229819f7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sleepingPlace: {fileID: 0}
-  _money: {fileID: 0}
-  _startPosition: {fileID: 0}
-  _MaxSpawn: 0
 --- !u!1 &1931268599469624469
 GameObject:
   m_ObjectHideFlags: 0
@@ -3635,7 +3599,6 @@ GameObject:
   - component: {fileID: 1931268600667092113}
   - component: {fileID: 1931268600667092112}
   - component: {fileID: 1931268600667092119}
-  - component: {fileID: 5344880402085030322}
   m_Layer: 3
   m_Name: BonfireTriger
   m_TagString: Untagged
@@ -3741,23 +3704,6 @@ MonoBehaviour:
   _entryPosition: {fileID: 0}
   _maximumLogs: 0
   _sleepingPlace: {fileID: 0}
-  _moneySpawn: {fileID: 5344880402085030322}
---- !u!114 &5344880402085030322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1931268600667092125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40eab59a617c5ab488f1a5d229819f7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sleepingPlace: {fileID: 0}
-  _money: {fileID: 0}
-  _startPosition: {fileID: 0}
-  _MaxSpawn: 0
 --- !u!1 &1931268600706587779
 GameObject:
   m_ObjectHideFlags: 0

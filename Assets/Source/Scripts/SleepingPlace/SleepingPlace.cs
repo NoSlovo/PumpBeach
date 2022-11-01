@@ -30,7 +30,8 @@ public abstract class SleepingPlace : MonoBehaviour
     {
         var waitForSecondsRealtime = new WaitForSecondsRealtime(5f);
         yield return waitForSecondsRealtime;
-        enemy.transform.DOMove(_bonfire.EntryPosition.position, 5f).OnComplete(() =>
+        enemy.MoveToPoint(_bonfire.EntryPosition);
+        enemy.transform.DOMove(_bonfire.EntryPosition.position, 2f).OnComplete(() =>
         {
             enemy.MoveToPoint(_deleteEnemyPoint.transform);
             EnemyExit.Invoke();

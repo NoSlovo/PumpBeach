@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
     {
         if (_endPoint != null)
         {
-            if (Vector3.Distance(transform.position,_endPoint.position) < 0.5f)
+            if (Vector3.Distance(transform.position,_endPoint.position) < 1f)
             {
                 _activeReactionTriger = true;
             }   
@@ -48,10 +48,7 @@ public class Enemy : MonoBehaviour
     public void Crawling(Transform point)
     {
         _animator.Play(BaseAnimation.EnemyCrowling);
-        transform.DOMove(point.position, 5f).OnComplete(() =>
-        {
-            
-        });
+        transform.DOMove(point.position, 5f);
     }
     
     public void StopMove()
@@ -65,9 +62,13 @@ public class Enemy : MonoBehaviour
         _animator.Play(BaseAnimation.EnemySit);
     }
 
-    public void Sleep()
+    public void Sleep(Transform point)
     {
-        _animator.Play(BaseAnimation.Sleep);
+        _animator.Play(BaseAnimation.EnemyCrowling);
+        transform.DOMove(point.position, 5f).OnComplete(() =>
+        {
+            _animator.Play(BaseAnimation.Sleep); 
+        });
     }
     
 }

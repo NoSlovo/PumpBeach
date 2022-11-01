@@ -10,6 +10,7 @@ Material:
   m_Name: IslandFace
   m_Shader: {fileID: 4800000, guid: 0daa94f23f43f498b822cfbfc22c6689, type: 3}
   m_ValidKeywords:
+  - DR_RIM_ON
   - _UNITYSHADOWMODE_MULTIPLY
   m_InvalidKeywords:
   - _CELPRIMARYMODE_NONE
@@ -23,9 +24,9 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: d3bdc730c91fd476ebc39738a363ef25, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+        m_Texture: {fileID: 2800000, guid: 65a414335de134836abccbb731fb41d6, type: 3}
+        m_Scale: {x: -0.19, y: -0.54}
+        m_Offset: {x: -0.21, y: 0}
     - _CelCurveTexture:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -51,7 +52,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: c6ed0c6463040474c886353259dafc29, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -72,17 +73,17 @@ Material:
     - _Blend: 0
     - _BumpScale: 1
     - _CelExtraEnabled: 0
-    - _CelNumSteps: 3
+    - _CelNumSteps: 10
     - _CelPrimaryMode: 0
     - _Cull: 2
     - _Cutoff: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _FlatRimEdgeSmoothness: 0.5
-    - _FlatRimLightAlign: 0
-    - _FlatRimSize: 0.5
-    - _FlatSpecularEdgeSmoothness: 0
-    - _FlatSpecularSize: 0.1
+    - _FlatRimEdgeSmoothness: 0
+    - _FlatRimLightAlign: 0.301
+    - _FlatRimSize: 0.377
+    - _FlatSpecularEdgeSmoothness: 1
+    - _FlatSpecularSize: 0.109
     - _Flatness: 1
     - _FlatnessExtra: 1
     - _GlossMapScale: 1
@@ -102,7 +103,7 @@ Material:
     - _OverrideLightmapDir: 0
     - _Parallax: 0.02
     - _QueueOffset: 0
-    - _RimEnabled: 0
+    - _RimEnabled: 1
     - _SelfShadingSize: 0.5
     - _SelfShadingSizeExtra: 0.6
     - _ShadowEdgeSize: 0.05
@@ -112,7 +113,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _TextureImpact: 1
+    - _TextureImpact: 0
     - _UVSec: 0
     - _UnityShadowMode: 1
     - _UnityShadowPower: 0.046
@@ -124,11 +125,11 @@ Material:
     - _ColorDim: {r: 1, g: 1, b: 1, a: 1}
     - _ColorDimCurve: {r: 0.62264144, g: 0.47667617, b: 0.061676703, a: 1}
     - _ColorDimExtra: {r: 0.85023, g: 0.85034, b: 0.8504499, a: 0.85056}
-    - _ColorDimSteps: {r: 0.85023, g: 0.85034, b: 0.8504499, a: 0.85056}
-    - _ColorGradient: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
+    - _ColorDimSteps: {r: 0.6037736, g: 0.5385376, b: 0.41295835, a: 1}
+    - _ColorGradient: {r: 0.764151, g: 0.6230392, b: 0.34963512, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FlatRimColor: {r: 0.62264144, g: 0.47667617, b: 0.061676726, a: 1}
-    - _FlatSpecularColor: {r: 0.62264144, g: 0.47667617, b: 0.061676726, a: 1}
+    - _FlatRimColor: {r: 0.7264151, g: 0.57126474, b: 0.12677999, a: 1}
+    - _FlatSpecularColor: {r: 0.9339623, g: 0.41015273, b: 0, a: 1}
     - _LightmapDirection: {r: 0, g: 1, b: 0, a: 0}
     - _UnityShadowColor: {r: 0.62264144, g: 0.47667617, b: 0.061676703, a: 1}
   m_BuildTextureStacks: []

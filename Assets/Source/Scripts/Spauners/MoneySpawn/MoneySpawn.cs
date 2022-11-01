@@ -12,6 +12,8 @@ public class MoneySpawn : MonoBehaviour
     [SerializeField] private Transform _startPosition;
     [SerializeField] private int _MaxSpawn;
 
+    private float _offset = 0.1f;
+
     private List<Money> _moneyColection = new ();
 
     private void OnEnable()
@@ -24,6 +26,7 @@ public class MoneySpawn : MonoBehaviour
         for (int i = 0; i < _MaxSpawn; i++)
         {
             var money = Instantiate(_money,_startPosition);
+            money.transform.position = _startPosition.position;
             _moneyColection.Add(money);
             MoveMoney();   
         }
@@ -34,8 +37,8 @@ public class MoneySpawn : MonoBehaviour
     {
         _moneyColection.ForEachIndexed((i, Index) =>
         {
-            var targetPosition = _startPosition.position + new Vector3(0, Index * 0.1f, 0);
-            i.transform.DOMove(targetPosition, 1f);
+            var targetPosition = _startPosition.position + new Vector3(0, Index * 0.1f + _offset, 0);
+            i.transform.DOMove(targetPosition, 0.1f);
         });
     }
     

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Reflex;
 using Reflex.Scripts.Attributes;
@@ -18,7 +17,7 @@ public class SpawnEnemy : MonoBehaviour
        _bonfireColection = container.Resolve<List<Bonfire>>();
    }
 
-   public void OnEnable()
+   private void OnEnable()
    {
        Listen();
        _bridg.BoatCreate += CreateAndMove;
@@ -32,7 +31,7 @@ public class SpawnEnemy : MonoBehaviour
      createEnemy.MoveToPoint(entryPoint);
    }
 
-   public void OnDisable()
+   private void OnDisable()
    {
        _bridg.BoatCreate -= CreateAndMove;
        StopListening();
