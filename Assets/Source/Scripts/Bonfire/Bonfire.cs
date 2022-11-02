@@ -7,20 +7,20 @@ using UnityEngine;
 [BurstCompile]
 public class Bonfire : MonoBehaviour
 {
-    [SerializeField] private List<BonfireLog> _colection;
-    [SerializeField] private ParticleSystem _psFire;
-    [SerializeField] private Transform _entryPosition;
-    [SerializeField] private int _maximumLogs;
+    [SerializeField] private List<BonfireLog> _colectionLogs;
+    [SerializeField] private ParticleSystem _particleFire;
+    [SerializeField] private Transform _pointMove;
+    [SerializeField] private int _maxLogs;
     [SerializeField] private SleepingPlace _sleepingPlace;
 
     private SpawnEnemy _spawnEnemy;
-    private int _activeCount;
+    private int _activeLogsCount;
     private bool _logMove;
     
-    public int ActiveCount => _activeCount;
-    public int MaximumLogs => _maximumLogs;
-    public int MaxActiveElemnt => _colection.Count;
-    public Transform EntryPosition => _entryPosition;
+    public int activeLogsCount => _activeLogsCount;
+    public int maxLogs => _maxLogs;
+    public int MaxActiveElemnt => _colectionLogs.Count;
+    public Transform pointMove => _pointMove;
 
     public event Action LogInside;
     public event Action<Transform> BonfireActive;
@@ -28,13 +28,13 @@ public class Bonfire : MonoBehaviour
 
     private void OnEnable()
     {
-        _sleepingPlace.EnemyExit += EnableElemenst;
+        _sleepingPlace.EnemyExit += EnableElements;
     }
 
     private void Start()
     {
-        EnableElemenst();
-        _psFire.Stop();
+        EnableElements();
+        _particleFire.Stop();
         LogInside?.Invoke();
     }
 
@@ -46,9 +46,9 @@ public class Bonfire : MonoBehaviour
 
     private void SetLog(TowerRoot tower)
     {
-        int maxCount = _maximumLogs == 0 ? _colection.Count : _maximumLogs;
+        int maxCount = _maxLogs == 0 ? _colectionLogs.Count : _maxLogs;
 
-        if (_activeCount < maxCount && _logMove == false)
+        if (_activeLogsCount < maxCount && _logMove == false)
         {
             if (tower.TryElementColection(out Log log))
             {
@@ -62,10 +62,10 @@ public class Bonfire : MonoBehaviour
 
                         AddLog(log);
 
-                        if (_activeCount == maxCount)
+                        if (_activeLogsCount == maxCount)
                         {
-                            BonfireActive?.Invoke(_entryPosition);
-                            _psFire.Play();
+                            BonfireActive?.Invoke(_pointMove);
+                            _particleFire.Play();
                         }
                     });
             }
@@ -74,28 +74,28 @@ public class Bonfire : MonoBehaviour
     
     private void ActiveFullColection()
     {
-        for (int i = 0; i < _colection.Count ; i++)
+        for (int i = 0; i < _colectionLogs.Count ; i++)
         {
-            _colection[i].MeshOn();
+            _colectionLogs[i].MeshOn();
         }
     }
     
     private void AddLog(Log log)
     {
-        _colection[_activeCount].MeshOn();
-        _activeCount++;
+        _colectionLogs[_activeLogsCount].MeshOn();
+        _activeLogsCount++;
         LogInside?.Invoke();
         _logMove = false;
         Destroy(log.gameObject);
     }
 
-    private void EnableElemenst()
+    private void EnableElements()
     {
-        _psFire.Stop();
-        _activeCount = 0;
-        for (int i = 0; i < _colection.Count; i++)
+        _particleFire.Stop();
+        _activeLogsCount = 0;
+        for (int i = 0; i < _colectionLogs.Count; i++)
         {
-            _colection[i].MeshOff();
+            _colectionLogs[i].MeshOff();
         }
         LogInside?.Invoke();
     }
@@ -103,6 +103,6 @@ public class Bonfire : MonoBehaviour
 
     private void OnDisable()
     {
-        _sleepingPlace.EnemyExit -= EnableElemenst;
+        _sleepingPlace.EnemyExit -= EnableElements;
     }
 }

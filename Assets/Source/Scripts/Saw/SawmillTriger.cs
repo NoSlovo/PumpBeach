@@ -12,6 +12,7 @@ public class SawmillTriger : MonoBehaviour
     [SerializeField] private BoatSpawn boatSpawn;
 
     private Stack<Log> _colection = new();
+    
     private int _maxLength = 28;
     private int _countElement;
     private float _duration = 2f;

@@ -24,9 +24,9 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 65a414335de134836abccbb731fb41d6, type: 3}
-        m_Scale: {x: -0.19, y: -0.54}
-        m_Offset: {x: -0.21, y: 0}
+        m_Texture: {fileID: 0}
+        m_Scale: {x: -0.18, y: -0.15}
+        m_Offset: {x: 0.05, y: 0}
     - _CelCurveTexture:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -80,8 +80,8 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _FlatRimEdgeSmoothness: 0
-    - _FlatRimLightAlign: 0.301
-    - _FlatRimSize: 0.377
+    - _FlatRimLightAlign: 0
+    - _FlatRimSize: 0
     - _FlatSpecularEdgeSmoothness: 1
     - _FlatSpecularSize: 0.109
     - _Flatness: 1

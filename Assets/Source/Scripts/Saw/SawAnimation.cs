@@ -9,7 +9,7 @@ public class SawAnimation : MonoBehaviour
     [SerializeField] private TrigerSaw _trigerSaw;
 
     private int _deleteCounter;
-    private int _maxDeleteItem = 2;
+    private int _maximumLogsRemoved = 2;
     public event Action LogsDestroyed;
     private void OnEnable()
     {
@@ -26,7 +26,7 @@ public class SawAnimation : MonoBehaviour
             _saw.StartRotation(animationStart);
             _trigerSaw.DeleteItem();
             _deleteCounter++;
-            if (_deleteCounter == _maxDeleteItem)
+            if (_deleteCounter == _maximumLogsRemoved)
             {
                 LogsDestroyed?.Invoke();
                 _deleteCounter = 0;

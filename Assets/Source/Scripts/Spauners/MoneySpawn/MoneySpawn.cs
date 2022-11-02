@@ -18,22 +18,22 @@ public class MoneySpawn : MonoBehaviour
 
     private void OnEnable()
     {
-        _sleepingPlace.EnemyExit += InstanceMoney;
+        _sleepingPlace.EnemyExit += Instance;
     }
     
-    private void InstanceMoney()
+    private void Instance()
     {
         for (int i = 0; i < _MaxSpawn; i++)
         {
             var money = Instantiate(_money,_startPosition);
             money.transform.position = _startPosition.position;
             _moneyColection.Add(money);
-            MoveMoney();   
+            MoveMoneyPosition();   
         }
     }
 
 
-    private void MoveMoney()
+    private void MoveMoneyPosition()
     {
         _moneyColection.ForEachIndexed((i, Index) =>
         {
@@ -45,6 +45,6 @@ public class MoneySpawn : MonoBehaviour
 
     private void OnDisable()
     {
-        _sleepingPlace.EnemyExit -= InstanceMoney;
+        _sleepingPlace.EnemyExit -= Instance;
     }
 }

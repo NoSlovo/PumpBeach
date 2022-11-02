@@ -24,11 +24,7 @@ public class SawmillUI : MonoBehaviour
         RefreshTextUI();
     }
 
-
-    private void RefreshTextUI()
-    {
-        _text.text = $"{_sawmillTriger.CountElement}/{_sawmillTriger.MaxLength}";
-    }
+    private void RefreshTextUI() => _text.text = $"{_sawmillTriger.CountElement}/{_sawmillTriger.MaxLength}";
 
     private void OnDisable()
     {

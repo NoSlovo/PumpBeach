@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
     }
     
     
-    public void Crawling(Transform point)
+    public void CrawlToPoint(Transform point)
     {
         _animator.Play(BaseAnimation.EnemyCrowling);
         transform.DOMove(point.position, 5f);
@@ -62,7 +62,7 @@ public class Enemy : MonoBehaviour
         _animator.Play(BaseAnimation.EnemySit);
     }
 
-    public void Sleep(Transform point)
+    public void GoSleep(Transform point)
     {
         _animator.Play(BaseAnimation.EnemyCrowling);
         transform.DOMove(point.position, 5f).OnComplete(() =>

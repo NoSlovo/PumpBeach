@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class SpawnEnemy : MonoBehaviour
 {
-   [SerializeField] private List<Enemy> _enemyColection;
+   [SerializeField] private List<Enemy> _enemyPrefabs;
    [SerializeField] private Bridg _bridg;
     
    private List<Bonfire> _bonfireColection;
@@ -25,16 +25,10 @@ public class SpawnEnemy : MonoBehaviour
 
    private void CreateAndMove(Transform entryPoint)
    {
-     var numberEnemy =  Random.Range(0, _enemyColection.Count);
-     var enemy = _enemyColection[numberEnemy];
+     var numberEnemy =  Random.Range(0, _enemyPrefabs.Count);
+     var enemy = _enemyPrefabs[numberEnemy];
      var createEnemy = Instantiate(enemy);
      createEnemy.MoveToPoint(entryPoint);
-   }
-
-   private void OnDisable()
-   {
-       _bridg.BoatCreate -= CreateAndMove;
-       StopListening();
    }
 
    private void Listen()
@@ -52,4 +46,10 @@ public class SpawnEnemy : MonoBehaviour
            bonfire.BonfireActive -= CreateAndMove;
        });
    }
+   private void OnDisable()
+   {
+       _bridg.BoatCreate -= CreateAndMove;
+       StopListening();
+   }
+
 }

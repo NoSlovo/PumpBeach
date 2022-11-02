@@ -21,13 +21,13 @@ public class BonfireText : MonoBehaviour
 
    private void RefreshTextUI()
    {
-      if (_bonfire.MaximumLogs == 0)
+      if (_bonfire.maxLogs == 0)
       {
-         _textUI.text =$"{_bonfire.ActiveCount}/{_bonfire.MaxActiveElemnt}";
+         _textUI.text =$"{_bonfire.activeLogsCount}/{_bonfire.MaxActiveElemnt}";
       }
       else
       {
-         _textUI.text = $"{_bonfire.ActiveCount}/{_bonfire.MaximumLogs}";    
+         _textUI.text = $"{_bonfire.activeLogsCount}/{_bonfire.maxLogs}";    
       }
    }
    

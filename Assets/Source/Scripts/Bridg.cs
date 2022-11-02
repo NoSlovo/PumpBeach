@@ -18,7 +18,7 @@ public class Bridg : MonoBehaviour
 
    private void OnEnable()
    {
-      _boatSpawn.BoatDesigned += ComeHere;
+      _boatSpawn.BoatDesigned += CallHere;
    }
 
    private void OnTriggerEnter(Collider other)
@@ -26,17 +26,17 @@ public class Bridg : MonoBehaviour
       if (other.TryGetComponent(out Enemy enemy))
       {
          enemy.StopMove();
-         PlaceInBoat(enemy);
+         CreateInTheBoat(enemy);
       }
    }
 
 
-   private void ComeHere()
+   private void CallHere()
    {
       BoatCreate.Invoke(_targetPosition);
    }
 
-   private void PlaceInBoat(Enemy enemy)
+   private void CreateInTheBoat(Enemy enemy)
    {
       if (_boatSpawn.GetCreatedItem(out Boat boat))
       {
@@ -61,7 +61,7 @@ public class Bridg : MonoBehaviour
 
    private void OnDisable()
    {
-      _boatSpawn.BoatDesigned -= ComeHere;
+      _boatSpawn.BoatDesigned -= CallHere;
    }
 }
 

@@ -9,7 +9,7 @@ public class SleepingBag : SleepingPlace
 
     public override void MoveEnemyPoint(Enemy enemy)
     {
-        enemy.Sleep(_endPoint);
+        enemy.GoSleep(_endPoint);
         enemy.transform.LookAt(_endPoint.position);
         
         StartCoroutine(Daley(enemy));
