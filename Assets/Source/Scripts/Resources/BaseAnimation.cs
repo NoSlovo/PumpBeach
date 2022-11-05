@@ -11,4 +11,5 @@ public class BaseAnimation
    public const string EnemySit = "Sit";
    public const string BoatSwim = "Swim";
    public const string Sleep = "Sleep";
+   public static readonly int _parametrVelosity = Animator.StringToHash("Velocity");
 }
