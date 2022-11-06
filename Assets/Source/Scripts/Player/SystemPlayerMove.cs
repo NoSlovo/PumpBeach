@@ -26,24 +26,34 @@ public class SystemPlayerMove : MonoBehaviour
 
         if (_joystick.Horizontal != 0 || _joystick.Vertical != 0)
         {
-            if (_towerRoot.CurrenCount > 0)
-            {
-                _animator.Play(BaseAnimation.Crewling);
-                _animator.Play(BaseAnimation.Run);
-                transform.rotation = Quaternion.LookRotation( _rb.velocity);
-            }
-            else
-            {
-                _animator.Play(BaseAnimation.Run);
-                transform.rotation = Quaternion.LookRotation( _rb.velocity);
-            }
+            Run();
         }
         else
         {
-            if (_towerRoot.CurrenCount == 0)
-                _animator.Play("New State");
-            
-            _animator.Play(BaseAnimation.Idle);
+            IdleAnimationPlay();
         }
+    }
+
+    private void Run()
+    {
+        if (_towerRoot.CurrenCount > 0)
+        {
+            _animator.Play(BaseAnimation.Crewling);
+            _animator.Play(BaseAnimation.Run);
+            transform.rotation = Quaternion.LookRotation( _rb.velocity);
+        }
+        else
+        {
+            _animator.Play(BaseAnimation.Run);
+            transform.rotation = Quaternion.LookRotation( _rb.velocity);
+        }
+    }
+
+    private void IdleAnimationPlay()
+    {
+        if (_towerRoot.CurrenCount == 0)
+            _animator.Play("New State");
+            
+        _animator.Play(BaseAnimation.Idle);
     }
 }
