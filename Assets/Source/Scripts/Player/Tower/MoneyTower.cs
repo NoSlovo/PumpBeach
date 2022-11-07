@@ -1,8 +1,9 @@
+using System;
 using UnityEngine;
 
-public class MoneyTower : MonoBehaviour
+public class MoneyTower : TowerBuilder<Money>
 {
-    private Tower<Money> _towerMoney = new ();
+    private static int _countElements;
     private void OnTriggerEnter(Collider other)
      {
          if (other.TryGetComponent(out Money money))
@@ -13,11 +14,4 @@ public class MoneyTower : MonoBehaviour
              PutElement(createMoney);
          }
      }
-    
-    private void PutElement(Money collectable)
-    {
-        _towerMoney.SetTransform(this.transform);
-        _towerMoney.PutElement(collectable);
-    }
-     
- }
+}
