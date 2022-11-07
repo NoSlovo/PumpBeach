@@ -5651,6 +5651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b791a30b7c91d0498a0fa397cd10c0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _moneyTower: {fileID: 603008346}
 --- !u!136 &603008345
 CapsuleCollider:
   m_ObjectHideFlags: 0
