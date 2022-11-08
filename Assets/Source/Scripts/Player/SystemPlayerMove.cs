@@ -10,6 +10,7 @@ public class SystemPlayerMove : MonoBehaviour
     [SerializeField] private DynamicJoystick _joystick;
     [SerializeField] private float _spead;
     [SerializeField] private TowerRoot _towerRoot;
+    [SerializeField] private MoneyTower _moneyTower;
 
     private int _invertValue = -1; 
 
@@ -36,7 +37,7 @@ public class SystemPlayerMove : MonoBehaviour
 
     private void Run()
     {
-        if (_towerRoot.CurrenCount > 0)
+        if (_towerRoot.CurrenCount > 0 || _moneyTower.CurrentCount > 0)
         {
             _animator.Play(BaseAnimation.Crewling);
             _animator.Play(BaseAnimation.Run);

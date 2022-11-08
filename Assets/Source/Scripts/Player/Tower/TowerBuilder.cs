@@ -16,7 +16,7 @@ public class TowerBuilder<T> : MonoBehaviour where T : MonoBehaviour
     public bool TowerFull => CurrentCount == _maxLengthColetion;
     
 
-    public void PutElement(T collectable)
+    protected void PutElement(T collectable)
     {
         if (TowerFull)
             return;
@@ -38,7 +38,7 @@ public class TowerBuilder<T> : MonoBehaviour where T : MonoBehaviour
         });
     }
 
-    private void RefreshPosition()
+    protected void RefreshPosition()
     {
         if (!_isRefreshExecuted)
             StartCoroutine(UpdatePositions());

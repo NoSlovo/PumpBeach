@@ -12,7 +12,7 @@ public class TrigerLogSpawner : MonoBehaviour
       {
         if (_logSpawner.TryColectionLog(out Log log))
         {
-          _tower.PutElement(log);
+          _tower.PutLog(log);
         } 
       }
     }
